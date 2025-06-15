@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Local Wallpaper Slideshow",
+  "version": "1.0",
+  "description": "Rotates local wallpapers in new tab.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Wallpaper Settings",
+    "default_popup": "settings.html",
+    "default_icon": "icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["default.jpg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

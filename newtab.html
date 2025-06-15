@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Tab</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: #202124;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    #wallpaper {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.7);
+      transition: opacity 0.5s ease-in-out;
+    }
+    .search-container {
+      margin-top: 30vh;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+    }
+    form {
+      display: flex;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      padding: 8px 16px;
+      background: white;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
+    }
+    input[type="text"] {
+      flex-grow: 1;
+      border: none;
+      font-size: 16px;
+      outline: none;
+      padding: 10px;
+      border-radius: 24px;
+    }
+    input[type="submit"] {
+      display: none; /* hide submit button, search on Enter */
+    }
+    .shortcuts {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .shortcut {
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgb(60 64 67 / 0.3);
+      transition: box-shadow 0.2s;
+    }
+    .shortcut:hover {
+      box-shadow: 0 4px 12px rgb(60 64 67 / 0.4);
+    }
+    .shortcut img {
+      width: 32px;
+      height: 32px;
+    }
+    /* Buttons below shortcuts */
+    .buttons {
+      margin-top: 25px;
+      text-align: center;
+    }
+    button {
+      background: #f8f9fa;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      color: #3c4043;
+      padding: 10px 18px;
+      margin: 0 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #e8e8e8;
+    }
+  </style>
+</head>
+<body>
+  <img id="wallpaper" alt="Wallpaper" />
+
+  <div class="search-container">
+    <form action="https://www.google.com/search" method="GET" role="search" aria-label="Google Search">
+      <input type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off" spellcheck="false" />
+      <input type="submit" value="Search" />
+    </form>
+
+    <div class="shortcuts" aria-label="Shortcuts">
+      <div class="shortcut" title="YouTube" role="button" tabindex="0" onclick="window.open('https://www.youtube.com')">
+        <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube icon" />
+      </div>
+      <div class="shortcut" title="Gmail" role="button" tabindex="0" onclick="window.open('https://mail.google.com')">
+        <img src="https://www.google.com/s2/favicons?domain=gmail.com" alt="Gmail icon" />
+      </div>
+      <div class="shortcut" title="ChatGPT" role="button" tabindex="0" onclick="window.open('https://chat.openai.com')">
+        <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT icon" />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="dailyEventBtn" type="button">📅 Daily Event</button>
+      <button id="sharePageBtn" type="button">📤 Share</button>
+    </div>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
